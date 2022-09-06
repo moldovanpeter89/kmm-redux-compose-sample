@@ -1,1 +1,1 @@
-# kmm-redux-compose-sample
+# kmmreduxsample
