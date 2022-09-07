@@ -35,7 +35,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
 
+    implementation("androidx.compose.ui:ui-tooling-preview:${compose}")
+
     // Compose
+    debugImplementation("androidx.compose.ui:ui-tooling:${compose}")
     implementation("androidx.compose.ui:ui-tooling:${compose}")
     implementation("androidx.compose.ui:ui:${compose}")
     implementation("androidx.compose.material:material:${compose}")

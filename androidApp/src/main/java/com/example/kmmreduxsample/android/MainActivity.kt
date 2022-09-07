@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -19,8 +20,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -84,11 +93,42 @@ fun LoginPage(
             val passwordState = remember { mutableStateOf(TextFieldValue("")) }
             val showProgressState = remember { mutableStateOf(false) }
             val showVerifyButtonState = remember { mutableStateOf(false) }
+
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.SpaceEvenly,
                 horizontalAlignment = Alignment.Start
             ) {
+                item {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        contentAlignment = Alignment.TopCenter
+                    ) {
+                        Text(
+                            buildAnnotatedString {
+                                withStyle(
+                                    style = SpanStyle(
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.Black
+                                    )
+                                ) {
+                                    append("enabl")
+                                }
+                                withStyle(
+                                    style = SpanStyle(
+                                        fontWeight = FontWeight.Bold,
+                                        fontStyle = FontStyle.Italic,
+                                        color = Color.Blue
+                                    )
+                                ) {
+                                    append("on")
+                                }
+                            },
+                            fontSize = 50.sp
+                        )
+                    }
+                }
 
                 item {
                     Box(
@@ -116,18 +156,36 @@ fun LoginPage(
                                 modifier = Modifier.padding(16.dp),
                             )
                         else
-                            DefaultButton(
-                                "Login", Icons.Filled.Done, onClick = {
-                                    viewModel.dispatch(LoginAction.SignIn(usernameState.value.text, passwordState.value.text))
-                                },
-                                enabled = !showVerifyButtonState.value
-                            )
+                            Button(
+                                colors = ButtonDefaults.buttonColors(
+                                    backgroundColor = Color.Blue,
+                                    contentColorFor(backgroundColor = MaterialTheme.colors.primary)
+                                ),
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(32.dp),
+                                enabled = !showVerifyButtonState.value,
+                                onClick = {
+                                    viewModel.dispatch(
+                                        LoginAction.SignIn(
+                                            usernameState.value.text,
+                                            passwordState.value.text
+                                        )
+                                    )
+                                }
+                            ) {
+                                Text(text = "SIGN IN", fontSize = 18.sp)
+                            }
                     }
                 }
 
                 if (loginState.error != null) {
                     item {
-                        Text(loginState.error.toString(), fontSize = 18.sp, modifier = Modifier.padding(16.dp))
+                        Text(
+                            loginState.error.toString(),
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(16.dp)
+                        )
                     }
                 }
             }
@@ -135,7 +193,6 @@ fun LoginPage(
     }
 
 }
-
 
 
 @Composable
@@ -153,7 +210,7 @@ fun HomePage(
         LaunchedEffect(key1 = LocalLifecycleOwner.current) {
             sideEffects.collect {
                 if (it is SignedOutSideEffect) {
-                    navController.navigate("login" )
+                    navController.navigate("login")
                 }
             }
         }
@@ -167,16 +224,18 @@ fun HomePage(
             }
             item {
                 DefaultButton(
-                    "Logout", Icons.Filled.Done, onClick = {
+                    backgroundColor = Color.Blue,
+                    icon = Icons.Filled.Done,
+                    text = "Logout",
+                    onClick = {
                         viewModel.dispatch(LoginAction.SignOut)
                     }
                 )
             }
         }
-        
+
     }
 }
-
 
 @Composable
 fun TextInputField(
@@ -201,7 +260,13 @@ fun TextInputField(
 }
 
 @Composable
-fun DefaultButton(text: String, icon: ImageVector, onClick: () -> Unit, enabled: Boolean = true, backgroundColor: Color = MaterialTheme.colors.primary) {
+fun DefaultButton(
+    text: String,
+    icon: ImageVector,
+    onClick: () -> Unit,
+    enabled: Boolean = true,
+    backgroundColor: Color = MaterialTheme.colors.primary
+) {
     Button(
         modifier = Modifier
             .width(220.dp)
@@ -215,7 +280,10 @@ fun DefaultButton(text: String, icon: ImageVector, onClick: () -> Unit, enabled:
             bottom = 12.dp
         ),
         enabled = enabled,
-        colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor, contentColor = Color.White)
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = backgroundColor,
+            contentColor = Color.White
+        )
     ) {
         // Inner content including an icon and a text label
         Icon(
