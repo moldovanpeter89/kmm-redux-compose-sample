@@ -9,6 +9,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
+            enablonText
             emailTextField
             passwordTextField
             loginButton
@@ -16,6 +17,19 @@ struct LoginView: View {
         .padding(.horizontal, 24)
     }
     
+    private var enablonText: some View {
+        HStack{
+            Text("Enabl")
+                .fontWeight(.bold)
+                .font(.system(size: 40))
+            Text("On")
+                .fontWeight(.bold)
+                .italic()
+                .font(.system(size: 40))
+                .foregroundColor(.blue)
+        }
+        
+    }
     
     private var emailTextField: some View {
         TextField("Email", text: $email)

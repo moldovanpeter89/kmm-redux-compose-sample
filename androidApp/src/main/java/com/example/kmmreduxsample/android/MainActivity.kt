@@ -216,11 +216,11 @@ fun HomePage(
         }
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Top,
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             item {
-                Text(text = "Home page ")
+                Text(text = "Hello, ")
             }
             item {
                 DefaultButton(
