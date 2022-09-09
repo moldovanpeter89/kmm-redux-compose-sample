@@ -10,7 +10,13 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		96EE199128CA5734005CD6EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199028CA5734005CD6EE /* LoginView.swift */; };
+		96EE199428CA5BC4005CD6EE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199328CA5BC4005CD6EE /* HomeView.swift */; };
+		96EE199728CA609A005CD6EE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199628CA609A005CD6EE /* AppState.swift */; };
+		96EE199928CA611F005CD6EE /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199828CA611F005CD6EE /* Store.swift */; };
+		96EE199B28CA6FEB005CD6EE /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199A28CA6FEB005CD6EE /* Actions.swift */; };
+		96EE199D28CA7038005CD6EE /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199C28CA7038005CD6EE /* Reducer.swift */; };
+		96EE19A028CA731B005CD6EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE199F28CA731B005CD6EE /* ContentView.swift */; };
 		BF42BD1B9F6E124FA8C9229A /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86012230656359C88E53CE94 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,9 +25,15 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86012230656359C88E53CE94 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96EE199028CA5734005CD6EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		96EE199328CA5BC4005CD6EE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		96EE199628CA609A005CD6EE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		96EE199828CA611F005CD6EE /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		96EE199A28CA6FEB005CD6EE /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		96EE199C28CA7038005CD6EE /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		96EE199F28CA731B005CD6EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C08039C9A3357D6FE5FFCA42 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FCBF77D9CBA3B1514FDCCDBC /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,13 +87,51 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				96EE199E28CA730D005CD6EE /* ContentView */,
+				96EE199528CA6084005CD6EE /* Redux */,
+				96EE199228CA5BB1005CD6EE /* Home */,
+				96EE198F28CA56E7005CD6EE /* Login */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		96EE198F28CA56E7005CD6EE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				96EE199028CA5734005CD6EE /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		96EE199228CA5BB1005CD6EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				96EE199328CA5BC4005CD6EE /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		96EE199528CA6084005CD6EE /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				96EE199628CA609A005CD6EE /* AppState.swift */,
+				96EE199828CA611F005CD6EE /* Store.swift */,
+				96EE199A28CA6FEB005CD6EE /* Actions.swift */,
+				96EE199C28CA7038005CD6EE /* Reducer.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		96EE199E28CA730D005CD6EE /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				96EE199F28CA731B005CD6EE /* ContentView.swift */,
+			);
+			path = ContentView;
 			sourceTree = "<group>";
 		};
 		BFFA9DBEB0F3D11BEE5FCE2E /* Pods */ = {
@@ -90,7 +140,6 @@
 				C08039C9A3357D6FE5FFCA42 /* Pods-iosApp.debug.xcconfig */,
 				FCBF77D9CBA3B1514FDCCDBC /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -190,8 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EE199928CA611F005CD6EE /* Store.swift in Sources */,
+				96EE199428CA5BC4005CD6EE /* HomeView.swift in Sources */,
+				96EE19A028CA731B005CD6EE /* ContentView.swift in Sources */,
+				96EE199128CA5734005CD6EE /* LoginView.swift in Sources */,
+				96EE199B28CA6FEB005CD6EE /* Actions.swift in Sources */,
+				96EE199D28CA7038005CD6EE /* Reducer.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				96EE199728CA609A005CD6EE /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +378,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,6 +399,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
