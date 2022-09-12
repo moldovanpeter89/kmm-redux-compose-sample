@@ -1,11 +1,13 @@
 package com.example.kmmreduxsample
 
-import com.example.kmmreduxsample.core.redux.ReduxStore
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import com.example.kmmreduxsample.common.app.AppState
+import com.example.kmmreduxsample.core.redux.Action
+import com.example.kmmreduxsample.core.redux.Effect
+import com.example.kmmreduxsample.core.redux.Store
+import org.koin.dsl.koinApplication
 import kotlin.time.ExperimentalTime
 
-@OptIn(ExperimentalTime::class, ExperimentalCoroutinesApi::class)
-fun ReduxStore.watchState() = observeState().wrap()
-
-@OptIn(ExperimentalTime::class, ExperimentalCoroutinesApi::class)
-fun ReduxStore.watchSideEffect() = observeSideEffect().wrap()
+@OptIn(ExperimentalTime::class)
+fun getObservableStore() = koinApplication {
+    koin.get<Store<AppState, Action, Effect>>()
+}

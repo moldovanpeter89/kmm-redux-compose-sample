@@ -19,10 +19,10 @@ struct LoginView: View {
     
     private var enablonText: some View {
         HStack{
-            Text("Enabl")
+            Text("enabl")
                 .fontWeight(.bold)
                 .font(.system(size: 40))
-            Text("On")
+            Text("ON")
                 .fontWeight(.bold)
                 .italic()
                 .font(.system(size: 40))
@@ -47,7 +47,7 @@ struct LoginView: View {
                 store.dispatch(.login)
             }
         } label: {
-            Text("Login")
+            Text("Sign in")
                 .foregroundColor(.white)
                 .padding([.top, .bottom], 12)
                 .padding(.horizontal, 32)
